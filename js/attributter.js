@@ -26,5 +26,6 @@ out(logo.getAttribute('firma'));
 logo.firma = 'kurt';
 logo.setAttribute('firma', 'kurt');
 
+//ændre farve på global variabel som er angivet i style
 document.documentElement.style.setProperty('--color-primary', 'orangered');
 
