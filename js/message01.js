@@ -1,4 +1,7 @@
-const out = (...str) => console.log(...str);
+'use strict';
+const out = (...str) => {console.log(...str)};
+
+out("jeg er i message01");
 
 function showMessage() {
   let strMessage = inpMessage.value;
@@ -8,32 +11,31 @@ function showMessage() {
   header.append(message);
   //cloneNode makes copy of message div node. full copy if true
   //header.append(message.cloneNode(true));
-
-  const pbClose = document.querySelector('.btn--close--cookie');
-  out(pbClose);
-
+  const cookClose = document.querySelector('.btn--close--cookie');
+  out(cookClose);
   //overfør kode som parameter. enten som anonym funktion
   //pbClose.addEventListener('click', function () {message.remove();});
   //eller som lambda
-  pbClose.addEventListener('click', e => message.remove());
-
-  out(message.style.width);
-  out(getComputedStyle(message).width);
-  out(getComputedStyle(message).color);
-  out(getComputedStyle(message).backgroundColor);
-
+  cookClose.addEventListener('click', function () {
+    message.remove();
+  })
+  out("col=" + getComputedStyle(message).color);
+  out(getComputedStyle(message));
 }
 
-const message = document.createElement('div');
-const pbMessage = document.querySelector(".pbGetMessage");
-const inpMessage = document.querySelector("#inpMessage");
+const pbGetMessage = document.querySelector(".pbGetMessage");
+const inpMessage = document.getElementById("inpMessage");
+
 const header = document.querySelector('.header');
-pbMessage.addEventListener('click', showMessage);
+const message = document.createElement('div');
 
-out(message.style.width);
-out(getComputedStyle(message).width);
+pbGetMessage.addEventListener('click', showMessage);
+
+message.style.width = '50%';
+message.style.backgroundColor = '#37383d';
+
+out("color=" + message.style.color);
+out("width=" + message.clientWidth);
+out("backgroundcolor=" + message.backgroundColor);
+
 out(getComputedStyle(message).color);
-out(getComputedStyle(message).backgroundColor);
-
-//message.style.width = '80%';
-out(message.style.width);
